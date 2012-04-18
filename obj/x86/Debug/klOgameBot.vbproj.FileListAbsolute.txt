@@ -1,0 +1,9 @@
+C:\Users\Alle\Desktop\klOgameBot\bin\Debug\klOgameBot.exe
+C:\Users\Alle\Desktop\klOgameBot\bin\Debug\klOgameBot.pdb
+C:\Users\Alle\Desktop\klOgameBot\bin\Debug\klOgameBot.xml
+C:\Users\Alle\Desktop\klOgameBot\obj\x86\Debug\klOgameBot.klOgameBot.resources
+C:\Users\Alle\Desktop\klOgameBot\obj\x86\Debug\klOgameBot.Resources.resources
+C:\Users\Alle\Desktop\klOgameBot\obj\x86\Debug\klOgameBot.vbproj.GenerateResource.Cache
+C:\Users\Alle\Desktop\klOgameBot\obj\x86\Debug\klOgameBot.exe
+C:\Users\Alle\Desktop\klOgameBot\obj\x86\Debug\klOgameBot.xml
+C:\Users\Alle\Desktop\klOgameBot\obj\x86\Debug\klOgameBot.pdb

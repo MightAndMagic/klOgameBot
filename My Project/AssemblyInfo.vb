@@ -1,4 +1,6 @@
-﻿Imports System
+﻿Imports System.Resources
+
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -10,12 +12,12 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("klOgameBot")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyCompany("MightySolutions Inc.")> 
 <Assembly: AssemblyProduct("klOgameBot")> 
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2012")> 
+<Assembly: AssemblyCopyright("Copyright © MightAndMagic & TheJumper 2012")> 
 <Assembly: AssemblyTrademark("")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 'Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
 <Assembly: Guid("cf281340-cfe3-4720-a851-8bd251bba92b")> 
@@ -33,3 +35,5 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("1.0.0.0")> 
 <Assembly: AssemblyFileVersion("1.0.0.0")> 
+
+<Assembly: NeutralResourcesLanguageAttribute("de-DE")> 

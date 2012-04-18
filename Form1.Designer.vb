@@ -31,12 +31,19 @@ Partial Class klOgameBot
         Me.PasswortLabel = New System.Windows.Forms.Label()
         Me.MetallLabel = New System.Windows.Forms.Label()
         Me.MetallCounter = New System.Windows.Forms.Label()
+        Me.DeuteriumLabel = New System.Windows.Forms.Label()
+        Me.DeuteriumCounter = New System.Windows.Forms.Label()
+        Me.KristalLabel = New System.Windows.Forms.Label()
+        Me.KristallCounter = New System.Windows.Forms.Label()
+        Me.EnergieLabel = New System.Windows.Forms.Label()
+        Me.EnergieCounter = New System.Windows.Forms.Label()
+        Me.RefreshButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Werbung
         '
         Me.Werbung.AutoSize = True
-        Me.Werbung.Location = New System.Drawing.Point(73, 113)
+        Me.Werbung.Location = New System.Drawing.Point(73, 114)
         Me.Werbung.Name = "Werbung"
         Me.Werbung.Size = New System.Drawing.Size(167, 13)
         Me.Werbung.TabIndex = 0
@@ -72,7 +79,7 @@ Partial Class klOgameBot
         Me.PasswortBox.Name = "PasswortBox"
         Me.PasswortBox.Size = New System.Drawing.Size(213, 20)
         Me.PasswortBox.TabIndex = 3
-        Me.PasswortBox.Text = "yourpasswordhere"
+        Me.PasswortBox.Text = "passwort"
         '
         'UsernameLabel
         '
@@ -96,7 +103,7 @@ Partial Class klOgameBot
         '
         Me.MetallLabel.AutoSize = True
         Me.MetallLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MetallLabel.Location = New System.Drawing.Point(10, 126)
+        Me.MetallLabel.Location = New System.Drawing.Point(9, 129)
         Me.MetallLabel.Name = "MetallLabel"
         Me.MetallLabel.Size = New System.Drawing.Size(76, 25)
         Me.MetallLabel.TabIndex = 6
@@ -106,11 +113,80 @@ Partial Class klOgameBot
         '
         Me.MetallCounter.AutoSize = True
         Me.MetallCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MetallCounter.Location = New System.Drawing.Point(92, 126)
+        Me.MetallCounter.Location = New System.Drawing.Point(94, 129)
         Me.MetallCounter.Name = "MetallCounter"
         Me.MetallCounter.Size = New System.Drawing.Size(32, 25)
         Me.MetallCounter.TabIndex = 7
         Me.MetallCounter.Text = "-/-"
+        '
+        'DeuteriumLabel
+        '
+        Me.DeuteriumLabel.AutoSize = True
+        Me.DeuteriumLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeuteriumLabel.Location = New System.Drawing.Point(155, 133)
+        Me.DeuteriumLabel.Name = "DeuteriumLabel"
+        Me.DeuteriumLabel.Size = New System.Drawing.Size(87, 20)
+        Me.DeuteriumLabel.TabIndex = 6
+        Me.DeuteriumLabel.Text = "Deuterium:"
+        '
+        'DeuteriumCounter
+        '
+        Me.DeuteriumCounter.AutoSize = True
+        Me.DeuteriumCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeuteriumCounter.Location = New System.Drawing.Point(238, 129)
+        Me.DeuteriumCounter.Name = "DeuteriumCounter"
+        Me.DeuteriumCounter.Size = New System.Drawing.Size(32, 25)
+        Me.DeuteriumCounter.TabIndex = 7
+        Me.DeuteriumCounter.Text = "-/-"
+        '
+        'KristalLabel
+        '
+        Me.KristalLabel.AutoSize = True
+        Me.KristalLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KristalLabel.Location = New System.Drawing.Point(9, 153)
+        Me.KristalLabel.Name = "KristalLabel"
+        Me.KristalLabel.Size = New System.Drawing.Size(83, 25)
+        Me.KristalLabel.TabIndex = 6
+        Me.KristalLabel.Text = "Kristall:"
+        '
+        'KristallCounter
+        '
+        Me.KristallCounter.AutoSize = True
+        Me.KristallCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KristallCounter.Location = New System.Drawing.Point(94, 154)
+        Me.KristallCounter.Name = "KristallCounter"
+        Me.KristallCounter.Size = New System.Drawing.Size(32, 25)
+        Me.KristallCounter.TabIndex = 7
+        Me.KristallCounter.Text = "-/-"
+        '
+        'EnergieLabel
+        '
+        Me.EnergieLabel.AutoSize = True
+        Me.EnergieLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnergieLabel.Location = New System.Drawing.Point(154, 153)
+        Me.EnergieLabel.Name = "EnergieLabel"
+        Me.EnergieLabel.Size = New System.Drawing.Size(92, 25)
+        Me.EnergieLabel.TabIndex = 6
+        Me.EnergieLabel.Text = "Energie:"
+        '
+        'EnergieCounter
+        '
+        Me.EnergieCounter.AutoSize = True
+        Me.EnergieCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnergieCounter.Location = New System.Drawing.Point(238, 154)
+        Me.EnergieCounter.Name = "EnergieCounter"
+        Me.EnergieCounter.Size = New System.Drawing.Size(32, 25)
+        Me.EnergieCounter.TabIndex = 7
+        Me.EnergieCounter.Text = "-/-"
+        '
+        'RefreshButton
+        '
+        Me.RefreshButton.Location = New System.Drawing.Point(15, 182)
+        Me.RefreshButton.Name = "RefreshButton"
+        Me.RefreshButton.Size = New System.Drawing.Size(274, 30)
+        Me.RefreshButton.TabIndex = 1
+        Me.RefreshButton.Text = "Aktualisieren"
+        Me.RefreshButton.UseVisualStyleBackColor = True
         '
         'klOgameBot
         '
@@ -119,11 +195,18 @@ Partial Class klOgameBot
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(301, 373)
         Me.Controls.Add(Me.MetallCounter)
+        Me.Controls.Add(Me.EnergieCounter)
+        Me.Controls.Add(Me.KristallCounter)
+        Me.Controls.Add(Me.DeuteriumCounter)
+        Me.Controls.Add(Me.EnergieLabel)
+        Me.Controls.Add(Me.KristalLabel)
+        Me.Controls.Add(Me.DeuteriumLabel)
         Me.Controls.Add(Me.MetallLabel)
         Me.Controls.Add(Me.PasswortLabel)
         Me.Controls.Add(Me.UsernameLabel)
         Me.Controls.Add(Me.PasswortBox)
         Me.Controls.Add(Me.UsernameBox)
+        Me.Controls.Add(Me.RefreshButton)
         Me.Controls.Add(Me.LoginButton)
         Me.Controls.Add(Me.Werbung)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -146,5 +229,12 @@ Partial Class klOgameBot
     Friend WithEvents PasswortLabel As System.Windows.Forms.Label
     Friend WithEvents MetallLabel As System.Windows.Forms.Label
     Friend WithEvents MetallCounter As System.Windows.Forms.Label
+    Friend WithEvents DeuteriumLabel As System.Windows.Forms.Label
+    Friend WithEvents DeuteriumCounter As System.Windows.Forms.Label
+    Friend WithEvents KristalLabel As System.Windows.Forms.Label
+    Friend WithEvents KristallCounter As System.Windows.Forms.Label
+    Friend WithEvents EnergieLabel As System.Windows.Forms.Label
+    Friend WithEvents EnergieCounter As System.Windows.Forms.Label
+    Friend WithEvents RefreshButton As System.Windows.Forms.Button
 
 End Class
