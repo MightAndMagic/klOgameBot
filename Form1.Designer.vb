@@ -22,21 +22,25 @@ Partial Class klOgameBot
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Werbung = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.textbox = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.querybox = New System.Windows.Forms.TextBox()
+        Me.LoginButton = New System.Windows.Forms.Button()
+        Me.UsernameBox = New System.Windows.Forms.TextBox()
+        Me.PasswortBox = New System.Windows.Forms.TextBox()
+        Me.UsernameLabel = New System.Windows.Forms.Label()
+        Me.PasswortLabel = New System.Windows.Forms.Label()
+        Me.MetallLabel = New System.Windows.Forms.Label()
+        Me.MetallCounter = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Label1
+        'Werbung
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 62)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(167, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Hier könnte ihre Werbung stehen!"
+        Me.Werbung.AutoSize = True
+        Me.Werbung.Location = New System.Drawing.Point(73, 113)
+        Me.Werbung.Name = "Werbung"
+        Me.Werbung.Size = New System.Drawing.Size(167, 13)
+        Me.Werbung.TabIndex = 0
+        Me.Werbung.Text = "Hier könnte ihre Werbung stehen!"
         '
         'TextBox1
         '
@@ -45,42 +49,83 @@ Partial Class klOgameBot
         Me.TextBox1.Size = New System.Drawing.Size(393, 20)
         Me.TextBox1.TabIndex = 1
         '
-        'textbox
+        'LoginButton
         '
-        Me.textbox.Location = New System.Drawing.Point(12, 12)
-        Me.textbox.Name = "textbox"
-        Me.textbox.Size = New System.Drawing.Size(312, 20)
-        Me.textbox.TabIndex = 1
-        Me.textbox.Text = "http://linkynator99.li.funpic.de"
-        Me.textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.LoginButton.Location = New System.Drawing.Point(15, 64)
+        Me.LoginButton.Name = "LoginButton"
+        Me.LoginButton.Size = New System.Drawing.Size(274, 46)
+        Me.LoginButton.TabIndex = 1
+        Me.LoginButton.Text = "Einloggen!"
+        Me.LoginButton.UseVisualStyleBackColor = True
         '
-        'Button1
+        'UsernameBox
         '
-        Me.Button1.Location = New System.Drawing.Point(330, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Los!"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.UsernameBox.Location = New System.Drawing.Point(76, 12)
+        Me.UsernameBox.Name = "UsernameBox"
+        Me.UsernameBox.Size = New System.Drawing.Size(213, 20)
+        Me.UsernameBox.TabIndex = 2
+        Me.UsernameBox.Text = "Epinephrine"
         '
-        'querybox
+        'PasswortBox
         '
-        Me.querybox.Location = New System.Drawing.Point(12, 38)
-        Me.querybox.Name = "querybox"
-        Me.querybox.Size = New System.Drawing.Size(312, 20)
-        Me.querybox.TabIndex = 3
-        Me.querybox.Text = "Dateien"
-        Me.querybox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.PasswortBox.Location = New System.Drawing.Point(76, 38)
+        Me.PasswortBox.Name = "PasswortBox"
+        Me.PasswortBox.Size = New System.Drawing.Size(213, 20)
+        Me.PasswortBox.TabIndex = 3
+        Me.PasswortBox.Text = "yourpasswordhere"
+        '
+        'UsernameLabel
+        '
+        Me.UsernameLabel.AutoSize = True
+        Me.UsernameLabel.Location = New System.Drawing.Point(12, 15)
+        Me.UsernameLabel.Name = "UsernameLabel"
+        Me.UsernameLabel.Size = New System.Drawing.Size(58, 13)
+        Me.UsernameLabel.TabIndex = 4
+        Me.UsernameLabel.Text = "Username:"
+        '
+        'PasswortLabel
+        '
+        Me.PasswortLabel.AutoSize = True
+        Me.PasswortLabel.Location = New System.Drawing.Point(12, 41)
+        Me.PasswortLabel.Name = "PasswortLabel"
+        Me.PasswortLabel.Size = New System.Drawing.Size(53, 13)
+        Me.PasswortLabel.TabIndex = 5
+        Me.PasswortLabel.Text = "Passwort:"
+        '
+        'MetallLabel
+        '
+        Me.MetallLabel.AutoSize = True
+        Me.MetallLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MetallLabel.Location = New System.Drawing.Point(10, 126)
+        Me.MetallLabel.Name = "MetallLabel"
+        Me.MetallLabel.Size = New System.Drawing.Size(76, 25)
+        Me.MetallLabel.TabIndex = 6
+        Me.MetallLabel.Text = "Metall:"
+        '
+        'MetallCounter
+        '
+        Me.MetallCounter.AutoSize = True
+        Me.MetallCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MetallCounter.Location = New System.Drawing.Point(92, 126)
+        Me.MetallCounter.Name = "MetallCounter"
+        Me.MetallCounter.Size = New System.Drawing.Size(32, 25)
+        Me.MetallCounter.TabIndex = 7
+        Me.MetallCounter.Text = "-/-"
         '
         'klOgameBot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(417, 210)
-        Me.Controls.Add(Me.querybox)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.textbox)
-        Me.Controls.Add(Me.Label1)
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(301, 373)
+        Me.Controls.Add(Me.MetallCounter)
+        Me.Controls.Add(Me.MetallLabel)
+        Me.Controls.Add(Me.PasswortLabel)
+        Me.Controls.Add(Me.UsernameLabel)
+        Me.Controls.Add(Me.PasswortBox)
+        Me.Controls.Add(Me.UsernameBox)
+        Me.Controls.Add(Me.LoginButton)
+        Me.Controls.Add(Me.Werbung)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -92,10 +137,14 @@ Partial Class klOgameBot
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Werbung As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents textbox As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents querybox As System.Windows.Forms.TextBox
+    Friend WithEvents LoginButton As System.Windows.Forms.Button
+    Friend WithEvents UsernameBox As System.Windows.Forms.TextBox
+    Friend WithEvents PasswortBox As System.Windows.Forms.TextBox
+    Friend WithEvents UsernameLabel As System.Windows.Forms.Label
+    Friend WithEvents PasswortLabel As System.Windows.Forms.Label
+    Friend WithEvents MetallLabel As System.Windows.Forms.Label
+    Friend WithEvents MetallCounter As System.Windows.Forms.Label
 
 End Class
