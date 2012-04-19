@@ -3,15 +3,36 @@ Public Class klOgameBot
     Dim globalURL As Uri
     Dim query As String
     Dim cookies As New CookieContainer
+    Dim logged_in As Boolean
     Dim UserAgent = "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:11.0) Gecko/20100101 Firefox/11.0"
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+    End Sub
+    Private Sub PasswortBox_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PasswortBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            LoginButton.PerformClick()
+            PasswortBox.DeselectAll()
+        End If
     End Sub
     Private Sub LoginButton_Click(sender As System.Object, e As System.EventArgs) Handles LoginButton.Click
         httpPOST("http://uni113.ogame.de/game/reg/login2.php")
     End Sub
     Private Sub RefreshButton_Click(sender As Object, e As System.EventArgs) Handles RefreshButton.Click
-        httpGET(globalURL, "")
+        If logged_in = True Then
+            httpGET(globalURL, "")
+        Else
+            MsgBox("Sie sind nicht angemeldet!", MsgBoxStyle.Information, "Fehler!")
+        End If
+    End Sub
+    Private Sub PasswortBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles PasswortBox.MouseClick
+        If PasswortBox.Text = "passwort" And logged_in = False Then
+            PasswortBox.Text = ""
+        End If
+    End Sub
+    Private Sub UsernameBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles UsernameBox.MouseClick
+        If UsernameBox.Text = "Epinephrine" And logged_in = False Then
+            UsernameBox.Text = ""
+        End If
     End Sub
     Private Function httpGET(ByVal url, ByVal query)
         Dim request As HttpWebRequest
@@ -77,6 +98,10 @@ Public Class klOgameBot
         If query = "anmeldung" Then
             If InStr(result, "Buddys") Then
                 MsgBox("Anmeldung erfolgreich!", MsgBoxStyle.Information, "Erfolg!")
+                LoginButton.Enabled = False
+                UsernameBox.ReadOnly = True
+                PasswortBox.ReadOnly = True
+                logged_in = True
             End If
         ElseIf query <> "" Then
             If InStr(result, query) Then
@@ -95,16 +120,6 @@ Public Class klOgameBot
         EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
         If EnergieCounter.Text = "" Then
             EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
-        End If
-    End Sub
-    Private Sub PasswortBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles PasswortBox.MouseClick
-        If PasswortBox.Text = "passwort" Then
-            PasswortBox.Text = ""
-        End If
-    End Sub
-    Private Sub UsernameBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles UsernameBox.MouseClick
-        If UsernameBox.Text = "Epinephrine" Then
-            UsernameBox.Text = ""
         End If
     End Sub
     Private Function filterString(ByVal source, ByVal match, ByVal Include)
