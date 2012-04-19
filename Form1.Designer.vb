@@ -113,7 +113,7 @@ Partial Class klOgameBot
         '
         Me.MetallCounter.AutoSize = True
         Me.MetallCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MetallCounter.Location = New System.Drawing.Point(94, 129)
+        Me.MetallCounter.Location = New System.Drawing.Point(83, 129)
         Me.MetallCounter.Name = "MetallCounter"
         Me.MetallCounter.Size = New System.Drawing.Size(32, 25)
         Me.MetallCounter.TabIndex = 7
@@ -123,7 +123,7 @@ Partial Class klOgameBot
         '
         Me.DeuteriumLabel.AutoSize = True
         Me.DeuteriumLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeuteriumLabel.Location = New System.Drawing.Point(155, 133)
+        Me.DeuteriumLabel.Location = New System.Drawing.Point(157, 133)
         Me.DeuteriumLabel.Name = "DeuteriumLabel"
         Me.DeuteriumLabel.Size = New System.Drawing.Size(87, 20)
         Me.DeuteriumLabel.TabIndex = 6
@@ -133,7 +133,7 @@ Partial Class klOgameBot
         '
         Me.DeuteriumCounter.AutoSize = True
         Me.DeuteriumCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeuteriumCounter.Location = New System.Drawing.Point(248, 129)
+        Me.DeuteriumCounter.Location = New System.Drawing.Point(250, 129)
         Me.DeuteriumCounter.Name = "DeuteriumCounter"
         Me.DeuteriumCounter.Size = New System.Drawing.Size(32, 25)
         Me.DeuteriumCounter.TabIndex = 7
@@ -153,7 +153,7 @@ Partial Class klOgameBot
         '
         Me.KristallCounter.AutoSize = True
         Me.KristallCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.KristallCounter.Location = New System.Drawing.Point(94, 154)
+        Me.KristallCounter.Location = New System.Drawing.Point(83, 154)
         Me.KristallCounter.Name = "KristallCounter"
         Me.KristallCounter.Size = New System.Drawing.Size(32, 25)
         Me.KristallCounter.TabIndex = 7
@@ -163,7 +163,7 @@ Partial Class klOgameBot
         '
         Me.EnergieLabel.AutoSize = True
         Me.EnergieLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnergieLabel.Location = New System.Drawing.Point(154, 153)
+        Me.EnergieLabel.Location = New System.Drawing.Point(156, 153)
         Me.EnergieLabel.Name = "EnergieLabel"
         Me.EnergieLabel.Size = New System.Drawing.Size(92, 25)
         Me.EnergieLabel.TabIndex = 6
@@ -173,7 +173,7 @@ Partial Class klOgameBot
         '
         Me.EnergieCounter.AutoSize = True
         Me.EnergieCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnergieCounter.Location = New System.Drawing.Point(248, 154)
+        Me.EnergieCounter.Location = New System.Drawing.Point(250, 154)
         Me.EnergieCounter.Name = "EnergieCounter"
         Me.EnergieCounter.Size = New System.Drawing.Size(32, 25)
         Me.EnergieCounter.TabIndex = 7
@@ -194,7 +194,6 @@ Partial Class klOgameBot
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(301, 373)
-        Me.Controls.Add(Me.MetallCounter)
         Me.Controls.Add(Me.EnergieCounter)
         Me.Controls.Add(Me.KristallCounter)
         Me.Controls.Add(Me.DeuteriumCounter)
@@ -209,6 +208,7 @@ Partial Class klOgameBot
         Me.Controls.Add(Me.RefreshButton)
         Me.Controls.Add(Me.LoginButton)
         Me.Controls.Add(Me.Werbung)
+        Me.Controls.Add(Me.MetallCounter)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False

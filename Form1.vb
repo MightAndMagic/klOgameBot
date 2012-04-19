@@ -112,10 +112,19 @@ Public Class klOgameBot
         End If
         'Metall
         MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        If MetallCounter.Text = "" Then
+            MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+        End If
         'Kristall
         KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        If KristallCounter.Text = "" Then
+            KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+        End If
         'Deuterium
         DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        If DeuteriumCounter.Text = "" Then
+            DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+        End If
         'Energie
         EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
         If EnergieCounter.Text = "" Then
@@ -131,7 +140,7 @@ Public Class klOgameBot
         Dim i As Integer
         Dim result As String = ""
         While i < source.Length
-            If IsNumeric(source.Substring(i, 1)) Or source.Substring(i, 1) = "." Then
+            If IsNumeric(source.Substring(i, 1)) Or source.Substring(i, 1) = "." Or source.Substring(i, 1) = "-" Then
                 result = result + source.Substring(i, 1)
             End If
             i = i + 1
