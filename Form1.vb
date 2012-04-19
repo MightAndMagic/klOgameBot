@@ -72,6 +72,7 @@ Public Class klOgameBot
         verarbeite(result, "anmeldung")
     End Sub
     Private Sub verarbeite(ByVal result, ByVal query)
+        Dim result_filtered = filterString(result, " ", False)
         My.Computer.FileSystem.WriteAllText("C:\Users\Alle\Desktop\testtt.txt", result, False)
         If query = "anmeldung" Then
             If InStr(result, "Buddys") Then
@@ -85,27 +86,42 @@ Public Class klOgameBot
             End If
         End If
         'Metall
-        If InStr(result, "<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">") Then
-            Dim i = InStr(result, "<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">")
-            MetallCounter.Text = result.Substring(i + 64, 5)
-        End If
+        MetallCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
         'Kristall
-        If InStr(result, "<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">") Then
-            Dim i = InStr(result, "<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">")
-            KristallCounter.Text = result.Substring(i + 62, 5)
-        End If
+        KristallCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
         'Deuterium
-        If InStr(result, "<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">") Then
-            Dim i = InStr(result, "<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">")
-            DeuteriumCounter.Text = result.Substring(i + 63, 5)
-        End If
+        DeuteriumCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
         'Energie
-        If InStr(result, "<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">") Then
-            Dim i = InStr(result, "<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">")
-            EnergieCounter.Text = result.Substring(i + 43, 3)
-        End If
+        EnergieCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
+        My.Computer.FileSystem.WriteAllText("C:\Users\Alle\Desktop\Werte.txt", MetallCounter.Text + ";" + KristallCounter.Text + ";" + DeuteriumCounter.Text + ";" + EnergieCounter.Text, False)
     End Sub
     Private Sub PasswortBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles PasswortBox.MouseClick
-        PasswortBox.Text = ""
+        If PasswortBox.Text = "passwort" Then
+            PasswortBox.Text = ""
+        End If
     End Sub
+    Private Sub UsernameBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles UsernameBox.MouseClick
+        If UsernameBox.Text = "Epinephrine" Then
+            UsernameBox.Text = ""
+        End If
+    End Sub
+    Private Function filterString(ByVal source, ByVal match, ByVal Include)
+        Dim sourceArray(0) As String
+        sourceArray(0) = source
+        Return Filter(sourceArray, match, Include)
+    End Function
+    Private Function getHTMLcontent(ByVal startBlock, ByVal endBlock, ByVal source)
+        If InStr(source, startBlock) Then
+            If InStr(source, endBlock) Then
+                Dim i = InStr(source, startBlock)
+                Dim j = InStr(i, source, endBlock)
+                i = i + Len(startBlock) - 1
+                Try
+                    Return source.Substring(i, j - i - 1)
+                Catch e As Exception
+                End Try
+            End If
+        End If
+        Return "!404!"
+    End Function
 End Class
