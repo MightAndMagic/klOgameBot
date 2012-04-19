@@ -133,7 +133,7 @@ Partial Class klOgameBot
         '
         Me.DeuteriumCounter.AutoSize = True
         Me.DeuteriumCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeuteriumCounter.Location = New System.Drawing.Point(238, 129)
+        Me.DeuteriumCounter.Location = New System.Drawing.Point(248, 129)
         Me.DeuteriumCounter.Name = "DeuteriumCounter"
         Me.DeuteriumCounter.Size = New System.Drawing.Size(32, 25)
         Me.DeuteriumCounter.TabIndex = 7
@@ -173,7 +173,7 @@ Partial Class klOgameBot
         '
         Me.EnergieCounter.AutoSize = True
         Me.EnergieCounter.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnergieCounter.Location = New System.Drawing.Point(238, 154)
+        Me.EnergieCounter.Location = New System.Drawing.Point(248, 154)
         Me.EnergieCounter.Name = "EnergieCounter"
         Me.EnergieCounter.Size = New System.Drawing.Size(32, 25)
         Me.EnergieCounter.TabIndex = 7

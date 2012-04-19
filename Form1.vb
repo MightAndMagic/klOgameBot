@@ -72,7 +72,7 @@ Public Class klOgameBot
         verarbeite(result, "anmeldung")
     End Sub
     Private Sub verarbeite(ByVal result, ByVal query)
-        Dim result_filtered = filterString(result, " ", False)
+        'Dim result_filtered = filterString(result, " ", False)
         My.Computer.FileSystem.WriteAllText("C:\Users\Alle\Desktop\testtt.txt", result, False)
         If query = "anmeldung" Then
             If InStr(result, "Buddys") Then
@@ -86,14 +86,16 @@ Public Class klOgameBot
             End If
         End If
         'Metall
-        MetallCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
+        MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
         'Kristall
-        KristallCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
+        KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
         'Deuterium
-        DeuteriumCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
+        DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
         'Energie
-        EnergieCounter.Text = getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result)
-        My.Computer.FileSystem.WriteAllText("C:\Users\Alle\Desktop\Werte.txt", MetallCounter.Text + ";" + KristallCounter.Text + ";" + DeuteriumCounter.Text + ";" + EnergieCounter.Text, False)
+        EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        If EnergieCounter.Text = "" Then
+            EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+        End If
     End Sub
     Private Sub PasswortBox_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles PasswortBox.MouseClick
         If PasswortBox.Text = "passwort" Then
@@ -110,6 +112,17 @@ Public Class klOgameBot
         sourceArray(0) = source
         Return Filter(sourceArray, match, Include)
     End Function
+    Private Function trimStringNumeric(ByVal source As String)
+        Dim i As Integer
+        Dim result As String = ""
+        While i < source.Length
+            If IsNumeric(source.Substring(i, 1)) Or source.Substring(i, 1) = "." Then
+                result = result + source.Substring(i, 1)
+            End If
+            i = i + 1
+        End While
+        Return result
+    End Function
     Private Function getHTMLcontent(ByVal startBlock, ByVal endBlock, ByVal source)
         If InStr(source, startBlock) Then
             If InStr(source, endBlock) Then
@@ -122,6 +135,6 @@ Public Class klOgameBot
                 End Try
             End If
         End If
-        Return "!404!"
+        Return ""
     End Function
 End Class
