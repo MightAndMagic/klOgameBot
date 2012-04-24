@@ -4,6 +4,7 @@ Public Class klOgameBot
     Dim query As String
     Dim cookies As New CookieContainer
     Dim logged_in As Boolean
+    Dim startPos_temp As Integer
     Dim UserAgent = "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:11.0) Gecko/20100101 Firefox/11.0"
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -111,25 +112,29 @@ Public Class klOgameBot
             End If
         End If
         'Metall
-        MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result, 1))
         If MetallCounter.Text = "" Then
-            MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+            MetallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_metal" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result, 1))
         End If
         'Kristall
-        KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result, 1))
         If KristallCounter.Text = "" Then
-            KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+            KristallCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_crystal" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result, 1))
         End If
         'Deuterium
-        DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result, 1))
         If DeuteriumCounter.Text = "" Then
-            DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+            DeuteriumCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_deuterium" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result, 1))
         End If
         'Energie
-        EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result))
+        EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + Chr(34) + ">", "</span>", result, 1))
         If EnergieCounter.Text = "" Then
-            EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result))
+            EnergieCounter.Text = trimStringNumeric(getHTMLcontent("<span id=" + Chr(34) + "resources_energy" + Chr(34) + " class=" + Chr(34) + "overmark" + Chr(34) + ">", "</span>", result, 1))
         End If
+        'Momentan im Bau
+        imBauText.Text = getBuildingInProgress(result)
+        inForschungText.Text = getScienceInProgress(result)
+        inSchiffswerftText.Text = getConstructionInProgress(result)
     End Sub
     Private Function filterString(ByVal source, ByVal match, ByVal Include)
         Dim sourceArray(0) As String
@@ -147,17 +152,45 @@ Public Class klOgameBot
         End While
         Return result
     End Function
-    Private Function getHTMLcontent(ByVal startBlock, ByVal endBlock, ByVal source)
+    Private Function getHTMLcontent(ByVal startBlock, ByVal endBlock, ByVal source, ByVal startingPosition)
         If InStr(source, startBlock) Then
             If InStr(source, endBlock) Then
-                Dim i = InStr(source, startBlock)
+                Dim i = InStr(startingPosition, source, startBlock)
                 Dim j = InStr(i, source, endBlock)
                 i = i + Len(startBlock) - 1
                 Try
+                    startPos_temp = i
                     Return source.Substring(i, j - i - 1)
                 Catch e As Exception
                 End Try
             End If
+        End If
+        Return ""
+    End Function
+    Private Function getBuildingInProgress(ByVal source)
+        Dim temp = getHTMLcontent("<h3>Gebäude</h3>", "</table>", source, 1)
+        If InStr(temp, "class=""idle""") Then
+            Return "-/-"
+        Else
+            Return getHTMLcontent("<th colspan=""2"">", "</th>", temp, 1)
+        End If
+        Return ""
+    End Function
+    Private Function getScienceInProgress(ByVal source)
+        Dim temp = getHTMLcontent("<h3>Forschung</h3>", "</table>", source, 1)
+        If InStr(temp, "class=""idle""") Then
+            Return "-/-"
+        Else
+            Return getHTMLcontent("<th colspan=""2"">", "</th>", temp, 1)
+        End If
+        Return ""
+    End Function
+    Private Function getConstructionInProgress(ByVal source)
+        Dim temp = getHTMLcontent("<h3>Schiffswerft</h3>", "</table>", source, 1)
+        If InStr(temp, "class=""idle""") Then
+            Return "-/-"
+        Else
+            Return getHTMLcontent("<th colspan=""2"">", "</th>", temp, 1)
         End If
         Return ""
     End Function
