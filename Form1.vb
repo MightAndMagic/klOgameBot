@@ -1,5 +1,6 @@
 ﻿Imports System.Net, System.IO, System.Text
 Public Class klOgameBot
+    Dim metalCosts(40, 10), crystalCosts(40, 10), deuteriumCosts(40, 10) As Integer
     Dim globalURL As Uri
     Dim query As String
     Dim cookies As New CookieContainer
@@ -7,7 +8,7 @@ Public Class klOgameBot
     Dim startPos_temp As Integer
     Dim UserAgent = "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:11.0) Gecko/20100101 Firefox/11.0"
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        initializeCostArrays()
     End Sub
     Private Sub PasswortBox_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles PasswortBox.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -20,7 +21,7 @@ Public Class klOgameBot
     End Sub
     Private Sub RefreshButton_Click(sender As Object, e As System.EventArgs) Handles RefreshButton.Click
         If logged_in = True Then
-            httpGET(globalURL, "")
+            httpGET(globalURL)
         Else
             MsgBox("Sie sind nicht angemeldet!", MsgBoxStyle.Information, "Fehler!")
         End If
@@ -35,7 +36,54 @@ Public Class klOgameBot
             UsernameBox.Text = ""
         End If
     End Sub
-    Private Function httpGET(ByVal url, ByVal query)
+    Private Sub initializeCostArrays()
+        'Costs:
+        '1: Metallmine
+        '2: Kristallmine
+        '3: Deuteriumsynhtetisierer
+        '4: Solarkraftwerk
+        metalCosts(1, 1) = 60
+        metalCosts(2, 1) = 90
+        metalCosts(3, 1) = 135
+        metalCosts(4, 1) = 202
+        metalCosts(5, 1) = 303
+        metalCosts(6, 1) = 455
+        metalCosts(7, 1) = 683
+        metalCosts(8, 1) = 1025
+        metalCosts(9, 1) = 1537
+        metalCosts(10, 1) = 2306
+        metalCosts(11, 1) = 3459
+        metalCosts(12, 1) = 5189
+        metalCosts(13, 1) = 7784
+        metalCosts(14, 1) = 11677
+        metalCosts(15, 1) = 17515
+        metalCosts(16, 1) = 26273
+        metalCosts(17, 1) = 39410
+        metalCosts(18, 1) = 59115
+        metalCosts(19, 1) = 88673
+        metalCosts(20, 1) = 133010
+        crystalCosts(1, 1) = 15
+        crystalCosts(2, 1) = 22
+        crystalCosts(3, 1) = 33
+        crystalCosts(4, 1) = 50
+        crystalCosts(5, 1) = 75
+        crystalCosts(6, 1) = 113
+        crystalCosts(7, 1) = 170
+        crystalCosts(8, 1) = 256
+        crystalCosts(9, 1) = 384
+        crystalCosts(10, 1) = 576
+        crystalCosts(11, 1) = 864
+        crystalCosts(12, 1) = 1297
+        crystalCosts(13, 1) = 1946
+        crystalCosts(14, 1) = 2919
+        crystalCosts(15, 1) = 4378
+        crystalCosts(16, 1) = 6568
+        crystalCosts(17, 1) = 9852
+        crystalCosts(18, 1) = 14778
+        crystalCosts(19, 1) = 22168
+        crystalCosts(20, 1) = 33252
+    End Sub
+    Private Function httpGET(ByVal url)
         Dim request As HttpWebRequest
 
         Try
@@ -56,7 +104,6 @@ Public Class klOgameBot
         Dim result = reader.ReadToEnd
         reader.Close()
         response.Close()
-        verarbeite(result, query)
         Return result
     End Function
     Private Sub httpPOST(ByVal url)
@@ -135,6 +182,7 @@ Public Class klOgameBot
         imBauText.Text = getBuildingInProgress(result)
         inForschungText.Text = getScienceInProgress(result)
         inSchiffswerftText.Text = getConstructionInProgress(result)
+        getBuildingLevels()
     End Sub
     Private Function filterString(ByVal source, ByVal match, ByVal Include)
         Dim sourceArray(0) As String
@@ -194,4 +242,24 @@ Public Class klOgameBot
         End If
         Return ""
     End Function
+    Private Sub getBuildingLevels()
+        Dim source = httpGET("http://uni113.ogame.de/game/index.php?page=resources")
+        'Metallmine:
+        Dim temp = getHTMLcontent("<div id=""buttonz"">", "<!-- END CONTENT AREA -->", source, 1)
+        MetallLevelText.Text = trimStringNumeric(getHTMLcontent("<span class=""textlabel"">", "</a>", getHTMLcontent("<li id=""button1""", "</li>", temp, 1), 1))
+        'Kristallmine:
+        KristallLevelText.Text = trimStringNumeric(getHTMLcontent("<span class=""textlabel"">", "</a>", getHTMLcontent("<li id=""button2""", "</li>", temp, 1), 1))
+        'Deuteriumsynthetisierer:
+        DeuteriumLevelText.Text = trimStringNumeric(getHTMLcontent("</span>", "</a>", getHTMLcontent("<li id=""button3""", "</li>", temp, 1), 1))
+        'Solarkraftwerk:
+        SolarkraftwerkLevelText.Text = trimStringNumeric(getHTMLcontent("<span class=""textlabel"">", "</a>", getHTMLcontent("<li id=""button4""", "</li>", temp, 1), 1))
+
+        source = httpGET("http://uni113.ogame.de/game/index.php?page=station")
+        temp = getHTMLcontent("<div id=""buttonz"">", "<!-- END CONTENT AREA -->", source, 1)
+        My.Computer.FileSystem.WriteAllText("C:\Users\Alle\Desktop\testtt.txt", source, False)
+        'Roboterfabrik:
+        RoboterfabrikLevelText.Text = trimStringNumeric(getHTMLcontent("<span class=""textlabel"">", "</a>", getHTMLcontent("<li id=""button0""", "</li>", temp, 1), 1))
+        'Raumschiffwerft:
+        RaumschiffwerftLevelText.Text = trimStringNumeric(getHTMLcontent("<span class=""textlabel"">", "</a>", getHTMLcontent("<li id=""button1""", "</li>", temp, 1), 1))
+    End Sub
 End Class

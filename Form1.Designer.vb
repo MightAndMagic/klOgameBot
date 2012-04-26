@@ -44,6 +44,18 @@ Partial Class klOgameBot
         Me.inForschungText = New System.Windows.Forms.Label()
         Me.inSchiffswerftLabel = New System.Windows.Forms.Label()
         Me.inSchiffswerftText = New System.Windows.Forms.Label()
+        Me.MetallLevelLabel = New System.Windows.Forms.Label()
+        Me.KristallLevelLabel = New System.Windows.Forms.Label()
+        Me.DeuteriumLevelLabel = New System.Windows.Forms.Label()
+        Me.SolarkraftwerkLevelLabel = New System.Windows.Forms.Label()
+        Me.RoboterfabrikLevelLabel = New System.Windows.Forms.Label()
+        Me.RaumschiffwerftLevelLabel = New System.Windows.Forms.Label()
+        Me.MetallLevelText = New System.Windows.Forms.Label()
+        Me.KristallLevelText = New System.Windows.Forms.Label()
+        Me.DeuteriumLevelText = New System.Windows.Forms.Label()
+        Me.SolarkraftwerkLevelText = New System.Windows.Forms.Label()
+        Me.RoboterfabrikLevelText = New System.Windows.Forms.Label()
+        Me.RaumschiffwerftLevelText = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Werbung
@@ -85,7 +97,7 @@ Partial Class klOgameBot
         Me.PasswortBox.Name = "PasswortBox"
         Me.PasswortBox.Size = New System.Drawing.Size(172, 20)
         Me.PasswortBox.TabIndex = 3
-        Me.PasswortBox.Text = "hulaplala"
+        Me.PasswortBox.Text = "passwort"
         '
         'UsernameLabel
         '
@@ -254,16 +266,148 @@ Partial Class klOgameBot
         Me.inSchiffswerftText.TabIndex = 9
         Me.inSchiffswerftText.Text = "-/-"
         '
+        'MetallLevelLabel
+        '
+        Me.MetallLevelLabel.AutoSize = True
+        Me.MetallLevelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MetallLevelLabel.Location = New System.Drawing.Point(255, 113)
+        Me.MetallLevelLabel.Name = "MetallLevelLabel"
+        Me.MetallLevelLabel.Size = New System.Drawing.Size(89, 20)
+        Me.MetallLevelLabel.TabIndex = 8
+        Me.MetallLevelLabel.Text = "Metallmine:"
+        '
+        'KristallLevelLabel
+        '
+        Me.KristallLevelLabel.AutoSize = True
+        Me.KristallLevelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KristallLevelLabel.Location = New System.Drawing.Point(255, 133)
+        Me.KristallLevelLabel.Name = "KristallLevelLabel"
+        Me.KristallLevelLabel.Size = New System.Drawing.Size(93, 20)
+        Me.KristallLevelLabel.TabIndex = 8
+        Me.KristallLevelLabel.Text = "Kristallmine:"
+        '
+        'DeuteriumLevelLabel
+        '
+        Me.DeuteriumLevelLabel.AutoSize = True
+        Me.DeuteriumLevelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeuteriumLevelLabel.Location = New System.Drawing.Point(254, 153)
+        Me.DeuteriumLevelLabel.Name = "DeuteriumLevelLabel"
+        Me.DeuteriumLevelLabel.Size = New System.Drawing.Size(99, 20)
+        Me.DeuteriumLevelLabel.TabIndex = 8
+        Me.DeuteriumLevelLabel.Text = "Deuteriums.:"
+        '
+        'SolarkraftwerkLevelLabel
+        '
+        Me.SolarkraftwerkLevelLabel.AutoSize = True
+        Me.SolarkraftwerkLevelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SolarkraftwerkLevelLabel.Location = New System.Drawing.Point(425, 113)
+        Me.SolarkraftwerkLevelLabel.Name = "SolarkraftwerkLevelLabel"
+        Me.SolarkraftwerkLevelLabel.Size = New System.Drawing.Size(110, 20)
+        Me.SolarkraftwerkLevelLabel.TabIndex = 8
+        Me.SolarkraftwerkLevelLabel.Text = "Solarkrafwerk:"
+        '
+        'RoboterfabrikLevelLabel
+        '
+        Me.RoboterfabrikLevelLabel.AutoSize = True
+        Me.RoboterfabrikLevelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RoboterfabrikLevelLabel.Location = New System.Drawing.Point(425, 133)
+        Me.RoboterfabrikLevelLabel.Name = "RoboterfabrikLevelLabel"
+        Me.RoboterfabrikLevelLabel.Size = New System.Drawing.Size(110, 20)
+        Me.RoboterfabrikLevelLabel.TabIndex = 8
+        Me.RoboterfabrikLevelLabel.Text = "Roboterfabrik:"
+        '
+        'RaumschiffwerftLevelLabel
+        '
+        Me.RaumschiffwerftLevelLabel.AutoSize = True
+        Me.RaumschiffwerftLevelLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RaumschiffwerftLevelLabel.Location = New System.Drawing.Point(424, 153)
+        Me.RaumschiffwerftLevelLabel.Name = "RaumschiffwerftLevelLabel"
+        Me.RaumschiffwerftLevelLabel.Size = New System.Drawing.Size(129, 20)
+        Me.RaumschiffwerftLevelLabel.TabIndex = 8
+        Me.RaumschiffwerftLevelLabel.Text = "Raumschiffwerft:"
+        '
+        'MetallLevelText
+        '
+        Me.MetallLevelText.AutoSize = True
+        Me.MetallLevelText.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MetallLevelText.Location = New System.Drawing.Point(360, 113)
+        Me.MetallLevelText.Name = "MetallLevelText"
+        Me.MetallLevelText.Size = New System.Drawing.Size(23, 20)
+        Me.MetallLevelText.TabIndex = 9
+        Me.MetallLevelText.Text = "-/-"
+        '
+        'KristallLevelText
+        '
+        Me.KristallLevelText.AutoSize = True
+        Me.KristallLevelText.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KristallLevelText.Location = New System.Drawing.Point(360, 133)
+        Me.KristallLevelText.Name = "KristallLevelText"
+        Me.KristallLevelText.Size = New System.Drawing.Size(23, 20)
+        Me.KristallLevelText.TabIndex = 9
+        Me.KristallLevelText.Text = "-/-"
+        '
+        'DeuteriumLevelText
+        '
+        Me.DeuteriumLevelText.AutoSize = True
+        Me.DeuteriumLevelText.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeuteriumLevelText.Location = New System.Drawing.Point(360, 153)
+        Me.DeuteriumLevelText.Name = "DeuteriumLevelText"
+        Me.DeuteriumLevelText.Size = New System.Drawing.Size(23, 20)
+        Me.DeuteriumLevelText.TabIndex = 9
+        Me.DeuteriumLevelText.Text = "-/-"
+        '
+        'SolarkraftwerkLevelText
+        '
+        Me.SolarkraftwerkLevelText.AutoSize = True
+        Me.SolarkraftwerkLevelText.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SolarkraftwerkLevelText.Location = New System.Drawing.Point(560, 113)
+        Me.SolarkraftwerkLevelText.Name = "SolarkraftwerkLevelText"
+        Me.SolarkraftwerkLevelText.Size = New System.Drawing.Size(23, 20)
+        Me.SolarkraftwerkLevelText.TabIndex = 9
+        Me.SolarkraftwerkLevelText.Text = "-/-"
+        '
+        'RoboterfabrikLevelText
+        '
+        Me.RoboterfabrikLevelText.AutoSize = True
+        Me.RoboterfabrikLevelText.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RoboterfabrikLevelText.Location = New System.Drawing.Point(560, 133)
+        Me.RoboterfabrikLevelText.Name = "RoboterfabrikLevelText"
+        Me.RoboterfabrikLevelText.Size = New System.Drawing.Size(23, 20)
+        Me.RoboterfabrikLevelText.TabIndex = 9
+        Me.RoboterfabrikLevelText.Text = "-/-"
+        '
+        'RaumschiffwerftLevelText
+        '
+        Me.RaumschiffwerftLevelText.AutoSize = True
+        Me.RaumschiffwerftLevelText.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RaumschiffwerftLevelText.Location = New System.Drawing.Point(560, 153)
+        Me.RaumschiffwerftLevelText.Name = "RaumschiffwerftLevelText"
+        Me.RaumschiffwerftLevelText.Size = New System.Drawing.Size(23, 20)
+        Me.RaumschiffwerftLevelText.TabIndex = 9
+        Me.RaumschiffwerftLevelText.Text = "-/-"
+        '
         'klOgameBot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(637, 373)
+        Me.Controls.Add(Me.RaumschiffwerftLevelText)
+        Me.Controls.Add(Me.RoboterfabrikLevelText)
+        Me.Controls.Add(Me.DeuteriumLevelText)
+        Me.Controls.Add(Me.KristallLevelText)
+        Me.Controls.Add(Me.SolarkraftwerkLevelText)
         Me.Controls.Add(Me.inSchiffswerftText)
+        Me.Controls.Add(Me.MetallLevelText)
         Me.Controls.Add(Me.inForschungText)
         Me.Controls.Add(Me.imBauText)
+        Me.Controls.Add(Me.RaumschiffwerftLevelLabel)
+        Me.Controls.Add(Me.DeuteriumLevelLabel)
         Me.Controls.Add(Me.inSchiffswerftLabel)
+        Me.Controls.Add(Me.RoboterfabrikLevelLabel)
+        Me.Controls.Add(Me.KristallLevelLabel)
+        Me.Controls.Add(Me.SolarkraftwerkLevelLabel)
+        Me.Controls.Add(Me.MetallLevelLabel)
         Me.Controls.Add(Me.inForschungLabel)
         Me.Controls.Add(Me.imBauLabel)
         Me.Controls.Add(Me.EnergieCounter)
@@ -314,5 +458,17 @@ Partial Class klOgameBot
     Friend WithEvents inForschungText As System.Windows.Forms.Label
     Friend WithEvents inSchiffswerftLabel As System.Windows.Forms.Label
     Friend WithEvents inSchiffswerftText As System.Windows.Forms.Label
+    Friend WithEvents MetallLevelLabel As System.Windows.Forms.Label
+    Friend WithEvents KristallLevelLabel As System.Windows.Forms.Label
+    Friend WithEvents DeuteriumLevelLabel As System.Windows.Forms.Label
+    Friend WithEvents SolarkraftwerkLevelLabel As System.Windows.Forms.Label
+    Friend WithEvents RoboterfabrikLevelLabel As System.Windows.Forms.Label
+    Friend WithEvents RaumschiffwerftLevelLabel As System.Windows.Forms.Label
+    Friend WithEvents MetallLevelText As System.Windows.Forms.Label
+    Friend WithEvents KristallLevelText As System.Windows.Forms.Label
+    Friend WithEvents DeuteriumLevelText As System.Windows.Forms.Label
+    Friend WithEvents SolarkraftwerkLevelText As System.Windows.Forms.Label
+    Friend WithEvents RoboterfabrikLevelText As System.Windows.Forms.Label
+    Friend WithEvents RaumschiffwerftLevelText As System.Windows.Forms.Label
 
 End Class

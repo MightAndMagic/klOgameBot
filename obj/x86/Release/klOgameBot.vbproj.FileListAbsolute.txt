@@ -7,3 +7,14 @@ C:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.vbproj.GenerateResou
 C:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.exe
 C:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.xml
 C:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.pdb
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.exe
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.xml
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.pdb
+P:\Users\Alle\Desktop\klOgameBot\bin\Release\klOgameBot.exe
+P:\Users\Alle\Desktop\klOgameBot\bin\Release\klOgameBot.pdb
+P:\Users\Alle\Desktop\klOgameBot\bin\Release\klOgameBot.xml
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\ResolveAssemblyReference.cache
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.klOgameBot.resources
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\klOgameBot.Resources.resources
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\GenerateResource.read.1.tlog
+P:\Users\Alle\Desktop\klOgameBot\obj\x86\Release\GenerateResource.write.1.tlog
